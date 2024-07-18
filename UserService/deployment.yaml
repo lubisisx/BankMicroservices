@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: userservice
+  labels:
+    app: userservice
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: userservice
@@ -14,6 +16,6 @@ spec:
     spec:
       containers:
         - name: userservice
-          image: your_dockerhub_username/userservice:latest
+          image: your-dockerhub-username/userservice:latest
           ports:
             - containerPort: 80
